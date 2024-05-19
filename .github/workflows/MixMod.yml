@@ -50,9 +50,9 @@ jobs:
         run: |
           sed -i "s/<Version>.*<\/Version>/<Version>${{ steps.version.outputs.version }}<\/Version>/" ./MixMod/MixMod.csproj
           sed -i "s/<PackageReference Include=\"UnityEngine.Modules\" Version=\".*\" IncludeAssets=\"compile\" \/>/<PackageReference Include=\"UnityEngine.Modules\" Version=\"${{ env.unity_version }}\" IncludeAssets=\"compile\" \/>/" ./MixMod/MixMod.csproj
-      - name: Commit changes
-        id: git_auto_commit
-        uses: stefanzweifel/git-auto-commit-action@v4
+      # - name: Commit changes
+      #   id: git_auto_commit
+      #   uses: stefanzweifel/git-auto-commit-action@v4
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
