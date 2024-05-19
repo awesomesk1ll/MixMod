@@ -62,7 +62,7 @@ jobs:
           repo_dir=$(pwd)
           mkdir ../Release/
           cd ../Release/
-          BepInExRelease=$(curl --silent https://api.github.com/repos/BepInEx/BepInEx/releases/latest)
+          BepInExRelease=$(curl --silent https://api.github.com/repos/BepInEx/BepInEx/releases/119156442)
           wget $(jq -r '.assets[] | select(.name | startswith("BepInEx_x86")) | .browser_download_url' <<< ${BepInExRelease}) -O BepInEx_x86.zip
           unzip BepInEx_x86.zip -x changelog.txt -d MixMod_Windows
           wget $(jq -r '.assets[] | select(.name | startswith("BepInEx_unix")) | .browser_download_url' <<< ${BepInExRelease}) -O BepInEx_unix.zip
